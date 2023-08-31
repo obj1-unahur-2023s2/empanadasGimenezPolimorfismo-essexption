@@ -10,6 +10,10 @@ describe "Test sobre las finanzas de Galván" {
 		galvan.gastar(5000000)
 	}
 	
+	method estaSinDeuda() {
+		return galvan.totalDeuda() == 0
+	}
+	
 	test "Galvan arranca con deuda cero" {
 		assert.equals(0, galvan.totalDeuda())
 	}
@@ -27,4 +31,19 @@ describe "Test sobre las finanzas de Galván" {
 		assert.equals(5350000, galvan.totalDeuda())
 	}
 
-}
+//Test UNITARIOS - Recomendado
+//2.
+	test "Galvan gasta 40000, deuda deber ser 40000" {
+		galvan.gastar(40000)
+		assert.equals(40000, galvan.totalDeuda())
+	}
+	test "Galvan gasta 40000, total de dinero deber ser 0" {
+		galvan.gastar(40000)
+		assert.equals(0, galvan.totalDinero())
+	}
+	test "Galvan no tiene deuda" {
+		assert.that(self.estaSinDeuda())
+	}
+}	
+
+	
