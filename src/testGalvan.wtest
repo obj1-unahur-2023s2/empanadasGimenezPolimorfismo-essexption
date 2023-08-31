@@ -1,0 +1,30 @@
+import empanadasGutierrez.*
+
+describe "Test sobre las finanzas de Galván" {
+
+	method initialize(){
+		galvan.cobrarSueldo()
+	}
+	method irAlShopping() {
+		galvan.gastar(500000)
+		galvan.gastar(5000000)
+	}
+	
+	test "Galvan arranca con deuda cero" {
+		assert.equals(0, galvan.totalDeuda())
+	}
+	
+	test "Galvan arranca con dinero  cero" {
+		assert.equals(0, galvan.totalDinero())
+	}
+	
+	test "El sueldo de Galvan es de 150000" {
+		assert.equals(150000, galvan.sueldo())
+	}
+	
+	test "Galvan va al shopping y se gasta los ahorros de 2 años" {
+		self.irAlShopping()
+		assert.equals(5350000, galvan.totalDeuda())
+	}
+
+}
